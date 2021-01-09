@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.0 on darwin)" generated="20210109 21:07:27.810" rpa="false">
+<suite id="s1" name="Example" source="/Users/nattatorn.yuch/workspace/robot-framework/example.robot">
+<kw name="Create Session" library="RequestsLibrary" type="setup">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>jsonplaceholder</arg>
+<arg>https://jsonplaceholder.typicode.com</arg>
+</arguments>
+<msg timestamp="20210109 21:07:27.889" level="INFO">Creating Session using : alias=jsonplaceholder, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210109 21:07:27.888" endtime="20210109 21:07:27.889"></status>
+</kw>
+<test id="s1-t1" name="Get Request Test">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>google</arg>
+<arg>http://www.google.com</arg>
+</arguments>
+<msg timestamp="20210109 21:07:27.889" level="INFO">Creating Session using : alias=google, url=http://www.google.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20210109 21:07:27.889" endtime="20210109 21:07:27.889"></status>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>google</arg>
+<arg>/</arg>
+<arg>expected_status=200</arg>
+</arguments>
+<assign>
+<var>${resp_google}</var>
+</assign>
+<msg timestamp="20210109 21:07:28.011" level="INFO">GET Request : url=http://www.google.com/ 
+ path_url=/ 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210109 21:07:28.011" level="INFO">GET Response : url=http://www.google.com/ 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 09 Jan 2021 14:07:28 GMT', 'Expires': '-1', 'Cache-Control': 'private, max-age=0', 'Content-Type': 'text/html; charset=ISO-8859-1', 'P3P': 'CP="This is not a P3P policy! See g.co/p3phelp for more info."', 'Content-Encoding': 'gzip', 'Server': 'gws', 'Content-Length': '6609', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'Set-Cookie': '1P_JAR=2021-01-09-14; expires=Mon, 08-Feb-2021 14:07:28 GMT; path=/; domain=.google.com; Secure, NID=206=FcIaRvH_Zjtwv8b11v2ffci5xOJ6S3lGfhubpAXg3BDlYYrpcGgKpUNkclZb_n_AnWvqjcB7A36Sax-MvNvvER2YUaeR1lDFA0Mh1bZjXX9heubsaW7dxt7COf8SsmYxvrYh4t3nj7YyO9bDAvDmfctHIpY7V0QfZAIdAGNGfEY; expires=Sun, 11-Jul-2021 14:07:28 GMT; path=/; domain=.google.com; HttpOnly'} 
+ body=&lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="th"&gt;&lt;head&gt;&lt;meta content="text/html; charset=UTF-8" http-equiv="Content-Type"&gt;&lt;meta content="/logos/doodles/2021/childrens-day-2021-january-09-6753651837108836-l.png" itemprop="image"&gt;&lt;meta content="&amp;#3623;&amp;#3633;&amp;#3609;&amp;#3648;&amp;#3604;&amp;#3655;&amp;#3585;&amp;#3649;&amp;#3627;&amp;#3656;&amp;#3591;&amp;#3594;&amp;#3634;&amp;#3605;&amp;#3636;" property="twitter:title"&gt;&lt;meta content="&amp;#3626;&amp;#3640;&amp;#3586;&amp;#3626;&amp;#3633;&amp;#3609;&amp;#3605;&amp;#3660;&amp;#3623;&amp;#3633;&amp;#3609;&amp;#3648;&amp;#3604;&amp;#3655;&amp;#3585; #GoogleDoodle" property="twitter:description"&gt;&lt;meta content="&amp;#3626;&amp;#3640;&amp;#3586;&amp;#3626;&amp;#3633;&amp;#3609;&amp;#3605;&amp;#3660;&amp;#3623;&amp;#3633;&amp;#3609;&amp;#3648;&amp;#3604;&amp;#3655;&amp;#3585; #GoogleDoodle" property="og:description"&gt;&lt;meta content="summary_large_image" property="twitter:card"&gt;&lt;meta content="@GoogleDoodles" property="twitter:site"&gt;&lt;meta content="https://www.google.com/logos/doodles/2021/childrens-day-2021-january-09-6753651837108836-2x.png" property="twitter:image"&gt;&lt;meta content="https://www.google.com/logos/doodles/2021/childrens-day-2021-january-09-6753651837108836-2x.png" property="og:image"&gt;&lt;meta content="1000" property="og:image:width"&gt;&lt;meta content="400" property="og:image:height"&gt;&lt;title&gt;Google&lt;/title&gt;&lt;script nonce="HpV+/UiBA3S1VsGlZuGjhg=="&gt;(function(){window.google={kEI:'oLj5X5zFAvKf4-EP-tuQwAQ',kEXPI:'0,1359409,731,223,756,2355,1993,207,3204,10,1144,82,364,1499,817,383,246,5,1129,225,4414,3,66,768,217,1262,1094,2766,7,2123,980,1069,1112997,1197716,566,8,328977,13677,4855,32692,16111,28687,9188,8384,4859,1361,9291,3020,2824,1923,12841,4998,7931,5297,2054,920,873,10622,14527,4517,2778,919,2277,8,2796,1593,1279,2212,531,148,1943,517,1466,58,155,4101,109,203,1137,2,2063,606,2023,1777,520,1947,2229,93,328,1284,2943,2246,3600,605,2622,1989,856,7,5599,6755,5096,7876,4929,108,3407,908,2,941,2614,2397,1386,1264,4818,3277,3,576,970,865,4624,149,5990,7985,4,1528,2304,217,1019,1,1144,2265,1817,2367,2429,17,447,459,1555,4067,1035,1316,155,3128,1426,2484,3011,1753,2658,4243,518,912,564,213,251,217,8,430,31,1303,2551,138,2440,655,990,52,3560,1939,2305,638,1494,130,475,2,1483,2146,1031,319,992,1369,55,142,603,212,3628,773,2,1430,587,11,731,64,601,337,513,2,1295,374,3282,2502,52,479,12,130,487,938,908,777,363,36,2490,612,8,522,384,3,1527,2014,1,1663,1794,63,554,978,240,289,405,91,430,492,704,949,642,370,14,157,40,69,117,384,893,115,1602,1655,216,17,56,898,665,245,709,2911,1180,992,494,531,87,571,163,526,239,266,90,195,466,1957,1945,738,5712548,1874,1996,35,5997148,2800863,549,333,444,1,2,80,1,900,896,1,9,2,2551,1,748,141,59,736,563,1,4265,1,1,2,1017,9,305,3299,248,595,1,2406,7,136,46,1,1,23957664',kBL:'ZWEf'};google.sn='webhp';google.kHL='th';})();(function(){
+google.lc=[];google.li=0;google.getEI=function(a){for(var b;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("eid")));)a=a.parentNode;return b||google.kEI};google.getLEI=function(a){for(var b=null;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("leid")));)a=a.parentNode;return b};google.ml=function(){return null};google.time=function(){return Date.now()};google.log=function(a,b,c,d,g){if(c=google.logUrl(a,b,c,d,g)){a=new Image;var e=google.lc,f=google.li;e[f]=a;a.onerror=a.onload=a.onabort=function(){delete e[f]};a.src=c;google.li=f+1}};google.logUrl=function(a,b,c,d,g){var e="",f=google.ls||"";c||-1!=b.search("&amp;ei=")||(e="&amp;ei="+google.getEI(d),-1==b.search("&amp;lei=")&amp;&amp;(d=google.getLEI(d))&amp;&amp;(e+="&amp;lei="+d));d="";!c&amp;&amp;google.cshid&amp;&amp;-1==b.search("&amp;cshid=")&amp;&amp;"slh"!=a&amp;&amp;(d="&amp;cshid="+google.cshid);c=c||"/"+(g||"gen_204")+"?atyp=i&amp;ct="+a+"&amp;cad="+b+e+f+"&amp;zx="+google.time()+d;/^http:/i.test(c)&amp;&amp;"https:"==window.location.protocol&amp;&amp;(google.ml(Error("a"),!1,{src:c,glmm:1}),c="");return c};}).call(this);(function(){google.y={};google.x=function(a,b){if(a)var c=a.id;else{do c=Math.random();while(google.y[c])}google.y[c]=[a,b];return!1};google.lm=[];google.plm=function(a){google.lm.push.apply(google.lm,a)};google.lq=[];google.load=function(a,b,c){google.lq.push([[a],b,c])};google.loadAll=function(a,b){google.lq.push([a,b])};}).call(this);google.f={};(function(){
+document.documentElement.addEventListener("submit",function(b){var a;if(a=b.target){var c=a.getAttribute("data-submitfalse");a="1"==c||"q"==c&amp;&amp;!a.elements.q.value?!0:!1}else a=!1;a&amp;&amp;(b.preventDefault(),b.stopPropagation())},!0);document.documentElement.addEventListener("click",function(b){var a;a:{for(a=b.target;a&amp;&amp;a!=document.documentElement;a=a.parentElement)if("A"==a.tagName){a="1"==a.getAttribute("data-nohref");break a}a=!1}a&amp;&amp;b.preventDefault()},!0);}).call(this);
+var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b+1);/(^|&amp;)q=/.test(c)&amp;&amp;-1==c.indexOf("#")&amp;&amp;a.replace("/search?"+c.replace(/(^|&amp;)fp=[^&amp;]*/g,"")+"&amp;cad=h")};&lt;/script&gt;&lt;style&gt;#gbar,#guser{font-size:13px;padding-top:1px !important;}#gbar{height:22px}#guser{padding-bottom:7px !important;text-align:right}.gbh,.gbd{border-top:1px solid #c9d7f1;font-size:1px}.gbh{height:0;position:absolute;top:24px;width:100%}@media all{.gb1{height:22px;margin-right:.5em;vertical-align:top}#gbar{float:left}}a.gb1,a.gb4{text-decoration:underline !important}a.gb1,a.gb4{color:#00c !important}.gbi .gb4{color:#dd8e27 !important}.gbf .gb4{color:#900 !important}
+&lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;overflow-y:scroll}#gog{padding:3px 8px 0}td{line-height:.8em}.gac_m td{line-height:17px}form{margin-bottom:20px}.h{color:#1558d6}em{color:#c5221f;font-style:normal;font-weight:normal}a em{text-decoration:underline}.lst{height:25px;width:496px}.gsfi,.lst{font:18px arial,sans-serif}.gsfs{font:17px arial,sans-serif}.ds{display:inline-box;display:inline-block;margin:3px 0 4px;margin-left:4px}input{font-family:inherit}body{background:#fff;color:#000}a{color:#4b11a8;text-decoration:none}a:hover,a:active{text-decoration:underline}.fl a{color:#1558d6}a:visited{color:#4b11a8}.sblc{padding-top:5px}.sblc a{display:block;margin:2px 0;margin-left:13px;font-size:11px}.lsbb{background:#f8f9fa;border:solid 1px;border-color:#dadce0 #70757a #70757a #dadce0;height:30px}.lsbb{display:block}#WqQANb a{display:inline-block;margin:0 12px}.lsb{background:url(/images/nav_logo229.png) 0 -261px repeat-x;border:none;color:#000;cursor:pointer;height:30px;margin:0;outline:0;font:15px arial,sans-serif;vertical-align:top}.lsb:active{background:#dadce0}.lst:focus{outline:none}.tiah{width:458px}&lt;/style&gt;&lt;script nonce="HpV+/UiBA3S1VsGlZuGjhg=="&gt;&lt;/script&gt;&lt;/head&gt;&lt;body bgcolor="#fff"&gt;&lt;script nonce="HpV+/UiBA3S1VsGlZuGjhg=="&gt;(function(){var src='/images/nav_logo229.png';var iesg=false;document.body.onload = function(){window.n &amp;&amp; window.n();if (document.images){new Image().src=src;}
+if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.focus();}
+}
+})();&lt;/script&gt;&lt;div id="mngb"&gt;&lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;&amp;#3588;&amp;#3657;&amp;#3609;&amp;#3627;&amp;#3634;&lt;/b&gt; &lt;a class=gb1 href="http://www.google.co.th/imghp?hl=th&amp;tab=wi"&gt;&amp;#3588;&amp;#3657;&amp;#3609;&amp;#3619;&amp;#3641;&amp;#3611;&lt;/a&gt; &lt;a class=gb1 href="http://maps.google.co.th/maps?hl=th&amp;tab=wl"&gt;Maps&lt;/a&gt; &lt;a class=gb1 href="http://www.youtube.com/?gl=TH&amp;tab=w1"&gt;YouTube&lt;/a&gt; &lt;a class=gb1 href="https://news.google.com/?tab=wn"&gt;&amp;#3586;&amp;#3656;&amp;#3634;&amp;#3623;&lt;/a&gt; &lt;a class=gb1 href="https://mail.google.com/mail/?tab=wm"&gt;Gmail&lt;/a&gt; &lt;a class=gb1 href="https://drive.google.com/?tab=wo"&gt;&amp;#3652;&amp;#3604;&amp;#3619;&amp;#3615;&amp;#3660;&lt;/a&gt; &lt;a class=gb1 href="https://www.google.com/calendar?tab=wc"&gt;&amp;#3611;&amp;#3599;&amp;#3636;&amp;#3607;&amp;#3636;&amp;#3609;&lt;/a&gt; &lt;a class=gb1 style="text-decoration:none" href="https://www.google.co.th/intl/th/about/products?tab=wh"&gt;&lt;u&gt;&amp;#3629;&amp;#3639;&amp;#3656;&amp;#3609;&amp;#3654;&lt;/u&gt; &amp;raquo;&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div id=guser width=100%&gt;&lt;nobr&gt;&lt;span id=gbn class=gbi&gt;&lt;/span&gt;&lt;span id=gbf class=gbf&gt;&lt;/span&gt;&lt;span id=gbe&gt;&lt;/span&gt;&lt;a href="http://www.google.co.th/history/optout?hl=th" class=gb4&gt;&amp;#3611;&amp;#3619;&amp;#3632;&amp;#3623;&amp;#3633;&amp;#3605;&amp;#3636;&amp;#3648;&amp;#3623;&amp;#3655;&amp;#3610;&lt;/a&gt; | &lt;a  href="/preferences?hl=th" class=gb4&gt;&amp;#3585;&amp;#3634;&amp;#3619;&amp;#3605;&amp;#3633;&amp;#3657;&amp;#3591;&amp;#3588;&amp;#3656;&amp;#3634;&lt;/a&gt; | &lt;a target=_top id=gb_70 href="https://accounts.google.com/ServiceLogin?hl=th&amp;passive=true&amp;continue=http://www.google.com/&amp;ec=GAZAAQ" class=gb4&gt;&amp;#3621;&amp;#3591;&amp;#3594;&amp;#3639;&amp;#3656;&amp;#3629;&amp;#3648;&amp;#3586;&amp;#3657;&amp;#3634;&amp;#3626;&amp;#3641;&amp;#3656;&amp;#3619;&amp;#3632;&amp;#3610;&amp;#3610;&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div class=gbh style=left:0&gt;&lt;/div&gt;&lt;div class=gbh style=right:0&gt;&lt;/div&gt;&lt;/div&gt;&lt;center&gt;&lt;br clear="all" id="lgpd"&gt;&lt;div id="lga"&gt;&lt;a href="/search?ie=UTF-8&amp;amp;q=%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%94%E0%B9%87%E0%B8%81%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4&amp;amp;oi=ddle&amp;amp;ct=174784914&amp;amp;hl=th&amp;amp;sa=X&amp;amp;ved=0ahUKEwiclaCLg4_uAhXyzzgGHfotBEgQPQgD"&gt;&lt;img alt="&amp;#3623;&amp;#3633;&amp;#3609;&amp;#3648;&amp;#3604;&amp;#3655;&amp;#3585;&amp;#3649;&amp;#3627;&amp;#3656;&amp;#3591;&amp;#3594;&amp;#3634;&amp;#3605;&amp;#3636;" border="0" height="200" src="/logos/doodles/2021/childrens-day-2021-january-09-6753651837108836-l.png" title="&amp;#3623;&amp;#3633;&amp;#3609;&amp;#3648;&amp;#3604;&amp;#3655;&amp;#3585;&amp;#3649;&amp;#3627;&amp;#3656;&amp;#3591;&amp;#3594;&amp;#3634;&amp;#3605;&amp;#3636;" width="500" id="hplogo"&gt;&lt;br&gt;&lt;/a&gt;&lt;br&gt;&lt;/div&gt;&lt;form action="/search" name="f"&gt;&lt;table cellpadding="0" cellspacing="0"&gt;&lt;tr valign="top"&gt;&lt;td width="25%"&gt;&amp;nbsp;&lt;/td&gt;&lt;td align="center" nowrap=""&gt;&lt;input name="ie" value="ISO-8859-1" type="hidden"&gt;&lt;input value="th" name="hl" type="hidden"&gt;&lt;input name="source" type="hidden" value="hp"&gt;&lt;input name="biw" type="hidden"&gt;&lt;input name="bih" type="hidden"&gt;&lt;div class="ds" style="height:32px;margin:4px 0"&gt;&lt;div style="position:relative;zoom:1"&gt;&lt;input class="lst tiah" style="margin:0;padding:5px 8px 0 6px;vertical-align:top;color:#000;padding-right:38px" autocomplete="off" value="" title="&amp;#3588;&amp;#3657;&amp;#3609;&amp;#3627;&amp;#3634;&amp;#3604;&amp;#3657;&amp;#3623;&amp;#3618; Google" maxlength="2048" name="q" size="57"&gt;&lt;img src="/textinputassistant/tia.png" style="position:absolute;cursor:pointer;right:5px;top:4px;z-index:300" data-script-url="/textinputassistant/11/th_tia.js" id="tsuid1" alt="" height="23" width="27"&gt;&lt;script nonce="HpV+/UiBA3S1VsGlZuGjhg=="&gt;(function(){var id='tsuid1';document.getElementById(i... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20210109 21:07:28.012" level="INFO">${resp_google} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210109 21:07:27.890" endtime="20210109 21:07:28.012"></status>
+</kw>
+<kw name="Get On Session" library="RequestsLibrary">
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>jsonplaceholder</arg>
+<arg>/posts/1</arg>
+</arguments>
+<assign>
+<var>${resp_json}</var>
+</assign>
+<msg timestamp="20210109 21:07:28.663" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/posts/1 
+ path_url=/posts/1 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20210109 21:07:28.663" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/posts/1 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 09 Jan 2021 14:07:28 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': '__cfduid=d942578687a0e81233b5f64844345d6821610201248; expires=Mon, 08-Feb-21 14:07:28 GMT; path=/; domain=.typicode.com; HttpOnly; SameSite=Lax', 'X-Powered-By': 'Express', 'X-Ratelimit-Limit': '1000', 'X-Ratelimit-Remaining': '999', 'X-Ratelimit-Reset': '1609690310', 'Vary': 'Origin, Accept-Encoding', 'Access-Control-Allow-Credentials': 'true', 'Cache-Control': 'max-age=43200', 'Pragma': 'no-cache', 'Expires': '-1', 'X-Content-Type-Options': 'nosniff', 'Etag': 'W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'HIT', 'Age': '7077', 'cf-request-id': '0789124b7900000706cd8d7000000001', 'Expect-CT': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report?s=WOet3hFXzSNnF19eUUXWCDfz%2FD6Two2eHHukVoDOm4e8V6v99x1YnJWbKbYKB%2Fiu8APmDt39EQTbTgpR2oAgSIbw8yEDCy9CS0fm2%2Fg2OFBKN7Mb30cEP86S3Oib"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '60eeb98bfe540706-LHR', 'Content-Encoding': 'gzip'} 
+ body={
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+} 
+ </msg>
+<msg timestamp="20210109 21:07:28.663" level="INFO">/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20210109 21:07:28.663" level="INFO">${resp_json} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210109 21:07:28.012" endtime="20210109 21:07:28.663"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${resp_google.reason}</arg>
+<arg>OK</arg>
+</arguments>
+<status status="PASS" starttime="20210109 21:07:28.664" endtime="20210109 21:07:28.665"></status>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<arguments>
+<arg>${resp_json.json()}</arg>
+<arg>sunt aut facere repellat provident occaecati excepturi optio reprehenderit</arg>
+</arguments>
+<status status="PASS" starttime="20210109 21:07:28.665" endtime="20210109 21:07:28.665"></status>
+</kw>
+<tags>
+<tag>done</tag>
+</tags>
+<status status="PASS" starttime="20210109 21:07:27.889" endtime="20210109 21:07:28.665" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210109 21:07:27.813" endtime="20210109 21:07:28.666"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">done</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Example">Example</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
