@@ -1,24 +1,37 @@
-*** Settings ***
-Library               Collections
-Library               RequestsLibrary
+### pip install --upgrade robotframework-requests
 
-Suite Setup           Create Session    jsonplaceholder    https://jsonplaceholder.typicode.com
+*** Settings ***
+Library         RequestsLibrary             WITH NAME   req
+Library         Collections
+Library         json
+Suite setup     Create Session  typicode    https://jsonplaceholder.typicode.com
+Suite teardown  Delete all sessions
+
 
 *** Test Cases ***
+requests: Should have a name and belong to a company with a slogan
+    ${resp}=        req.Get Request           typicode              /users/1
+    Should Be Equal As Integers               ${resp.status_code}   200
+    ${name}=        Get From Dictionary       ${resp.json()}        name
+    Should Be Equal As Strings                ${name}               Leanne Graham
+    ${co}=          Get From Dictionary       ${resp.json()}        company
+    ${co_slogan}=   Get From Dictionary       ${co}                 catchPhrase
+    Should Be Equal As Strings  ${co_slogan}  Multi-layered client-server neural-net
+    ${json}=        Dumps                     ${resp.json()}        indent=${4}
+    Log to Console  ${json}
 
-Get Request Test
-    [Tags]  done
-    Create Session    google             http://www.google.com
 
-    ${resp_google}=   GET On Session     google             /           expected_status=200
-    ${resp_json}=     GET On Session     jsonplaceholder    /posts/1
 
-    Should Be Equal As Strings           ${resp_google.reason}    OK
-    Dictionary Should Contain Value      ${resp_json.json()}      sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+### pip install --upgrade RESTinstance
 
-Post Request Test
-    &{data}=          Create dictionary  title=Robotframework requests  body=This is a test!  userId=1
-    ${resp}=          POST On Session    jsonplaceholder     /posts    json=${data}
-    
-    Status Should Be                     201    ${resp}
-    Dictionary Should Contain Key        ${resp.json()}     id
+*** Settings ***
+Library         REST              https://jsonplaceholder.typicode.com
+
+
+*** Test Cases ***
+RESTinstance: Should have a name and belong to a company with a slogan
+    REST.GET    /users/1
+    Integer     response status   200
+    String      $.name            Leanne Graham
+    String      $..catchPhrase    Multi-layered client-server neural-net
+    Output      $
